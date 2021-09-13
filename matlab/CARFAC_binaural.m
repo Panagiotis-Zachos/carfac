@@ -24,18 +24,19 @@ agc_plot_fig_num = 1;
 
 tic
 
-file_signal = wavread('../test_data/binaural_test.wav');
+file_signal = audioread('../test_data/binaural_test.wav');
 file_signal = file_signal(9000+(1:15000));  % trim for a faster test
 
 itd_offset = 22;  % about 1 ms
 test_signal = [file_signal((itd_offset+1):end), ...
                file_signal(1:(end-itd_offset))] / 10;
-             
-CF_struct = CARFAC_Design;  % default design
+
+n_ears = 2;           
+CF_struct = CARFAC_Design(n_ears);  % default design
 
 % Run stereo test:
-n_ears = 2
-CF_struct = CARFAC_Init(CF_struct, n_ears);
+
+CF_struct = CARFAC_Init(CF_struct);
   
 [CF_struct, nap_decim, nap] = CARFAC_Run(CF_struct, test_signal, agc_plot_fig_num);
 

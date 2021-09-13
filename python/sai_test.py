@@ -27,7 +27,7 @@ import numpy as np
 
 import sai as pysai
 
-_TEST_DATA_DIR = "../test_data"
+_TEST_DATA_DIR = "..\\test_data"
 
 
 def LoadMatrix(filename, rows, columns):
