@@ -44,7 +44,7 @@ CF_struct = CARFAC_Init(CF_struct);
 for ear = 1:n_ears
   smooth_nap = nap_decim(:, :, ear);
   figure(ear + n_ears)  % Makes figures 3 and 4
-  image(63 * ((smooth_nap)' .^ 0.5))
+  image(63 * ((abs(smooth_nap))' .^ 0.5))
 
   colormap(1 - gray);
 end
@@ -53,8 +53,8 @@ toc
 
 % Show resulting data, even though M-Lint complains:
 CF_struct
-CF_struct.CAR_state
-CF_struct.AGC_state
+CF_struct.CAR_params
+CF_struct.AGC_params
 min_max = [min(nap(:)), max(nap(:))]
 min_max_decim = [min(nap_decim(:)), max(nap_decim(:))]
 

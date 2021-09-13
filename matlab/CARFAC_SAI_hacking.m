@@ -33,7 +33,7 @@ if ~exist(['./', wav_fn], 'file')
 end
 
 wav_fn
-[file_signal, fs] = wavread(wav_fn);
+[file_signal, fs] = audioread(wav_fn);
 
 % if fs == 44100
 %   file_signal = (file_signal(1:2:end-1, :) + file_signal(2:2:end, :)) / 2;

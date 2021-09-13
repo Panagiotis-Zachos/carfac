@@ -19,7 +19,7 @@
 function MakeMovieFromPngsAndWav(frame_rate, png_name_pattern, ...
   wav_filename, out_filename)
 
-system(['rm "', out_filename, '"']);
+% system(['rm "', out_filename, '"']);
 
 if ~exist(wav_filename, 'file')
   error('wave file is missing', wav_filename)
